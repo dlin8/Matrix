@@ -113,6 +113,29 @@ public class Matrix {
 	}
     }
     //O(n)
+    public boolean isFull(){
+	boolean truth = true;
+	for(int r = 0; r < matrix.length; r++){
+	    for(int c = 0; c < matrix[r].length; c++){
+		if(matrix[r][c] == null){
+		    truth = false;
+		}
+	    }
+	}
+	return truth;
+    }
+    /*
+    public Object[] getRow(int r){
+    }
+    public Object[] getCol(int r){
+    }
+    public Object[] setRow(int r){
+    }
+    public Object[] setCol(int r){
+    }
+    public void Transpose(){
+    }
+    */
 
     //swap two rows of this matrix 
     //(1,1) is top left corner of matrix
@@ -202,7 +225,39 @@ public class Matrix {
 	matrixThree.swapColumns(0,2);
 	System.out.println(matrixThree);
 	matrixThree.swapColumns(0,2);
-	System.out.println(matrixThree);	
+	System.out.println(matrixThree);
+
+	Matrix matrixFour = new Matrix(2);
+	System.out.println(matrixFour.isFull());
+	matrixFour.set(0,0,"a");
+	matrixFour.set(0,1,"b");
+
+	matrixFour.set(1,0,"c");
+	matrixFour.set(1,1,"d");
+	/*
+	matrixFour.set(0,0,"a");
+	matrixFour.set(0,1,"b");
+	matrixFour.set(0,2,"c");
+	matrixFour.set(0,3,"d");
+
+	matrixFour.set(1,0,"e");
+	matrixFour.set(1,1,"f");
+	matrixFour.set(1,2,"g");
+	matrixFour.set(1,3,"h");
+
+	matrixFour.set(2,0,"i");
+	matrixFour.set(2,1,"j");
+	matrixFour.set(2,2,"k");
+	matrixFour.set(2,3,"l");
+
+	matrixFour.set(3,0,"m");
+	matrixFour.set(3,1,"n");
+	matrixFour.set(3,2,"o");
+	matrixFour.set(3,3,"p");
+	*/
+	System.out.println(matrixFour.isFull());
+	System.out.println(matrixFour);
+	
     }
 
 }//end class Matrix
