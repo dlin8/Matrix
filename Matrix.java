@@ -1,7 +1,7 @@
 /* Derek Lin
    APCS1 pd5
-   HW54 -- Red vs Blue
-   2016-01-06 */
+   HW55 -- Don't Think You Are. Know You Are.
+   2016-01-07 */
 
 /*====================================
   class Matrix -- models a square matrix
@@ -124,18 +124,45 @@ public class Matrix {
 	}
 	return truth;
     }
-    /*
+    //O(n^2)
     public Object[] getRow(int r){
+	return matrix[r];
     }
-    public Object[] getCol(int r){
+    //O(1)
+    public Object[] getCol(int c){
+	Object[] col = new Object[matrix.length];
+	for(int i = 0; i < matrix.length; i++){
+	    col[i] = matrix[i][c];
+	}
+	return col;
     }
-    public Object[] setRow(int r){
+    //O(n)
+    public Object[] setRow(int r, Object[] newRow){
+	Object[] temp = this.getRow(r);
+	for(int i = 0; i < matrix.length; i++){
+	    matrix[r][i] = newRow[i];
+	}
+	return temp;
     }
-    public Object[] setCol(int r){
+    //O(n)
+    public Object[] setCol(int c, Object[] newRow){
+	Object[] temp = this.getCol(c);
+	for(int i = 0; i < matrix.length; i++){
+	    matrix[i][c] = newRow[i];
+	}
+	return temp;
     }
+    //O(n)
     public void Transpose(){
+	Object[][] replacement = new Object[this.size()][this.size()];
+	for(int r = 0; r < matrix.length; r++){
+	    for(int c = 0; c < matrix[r].length; c++){
+		replacement[r][c] = matrix[c][r];
+	    }
+	}
+	System.out.println("Transpose!");
+	matrix = replacement;
     }
-    */
 
     //swap two rows of this matrix 
     //(1,1) is top left corner of matrix
@@ -157,6 +184,7 @@ public class Matrix {
 
     //main method for testing
     public static void main( String[] args ) {
+	/*
 	//Creation
 	Matrix matrixOne = new Matrix();
 	System.out.println("isEmpty testing");
@@ -226,7 +254,9 @@ public class Matrix {
 	System.out.println(matrixThree);
 	matrixThree.swapColumns(0,2);
 	System.out.println(matrixThree);
+	*/
 
+	/*
 	Matrix matrixFour = new Matrix(2);
 	System.out.println(matrixFour.isFull());
 	matrixFour.set(0,0,"a");
@@ -234,7 +264,25 @@ public class Matrix {
 
 	matrixFour.set(1,0,"c");
 	matrixFour.set(1,1,"d");
+	*/
+
 	/*
+	System.out.println(matrixFour.isFull());
+	Object[] row = matrixFour.getRow(0);
+	Object[] col = matrixFour.getCol(0);
+	Object[] newRow = {"a","c"};
+	Object[] newCol = {"a","b"};
+	System.out.println(row[0]);
+	System.out.println(row[1]);
+	System.out.println(col[0]);
+	System.out.println(col[1]);
+	System.out.println(matrixFour);
+	matrixFour.setRow(0, newRow);
+	matrixFour.setCol(0, newCol);
+	System.out.println(matrixFour);
+	*/
+
+	Matrix matrixFour = new Matrix(4);
 	matrixFour.set(0,0,"a");
 	matrixFour.set(0,1,"b");
 	matrixFour.set(0,2,"c");
@@ -254,10 +302,10 @@ public class Matrix {
 	matrixFour.set(3,1,"n");
 	matrixFour.set(3,2,"o");
 	matrixFour.set(3,3,"p");
-	*/
-	System.out.println(matrixFour.isFull());
+
 	System.out.println(matrixFour);
-	
+	matrixFour.Transpose();
+	System.out.println(matrixFour);
     }
 
 }//end class Matrix
