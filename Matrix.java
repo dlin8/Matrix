@@ -96,6 +96,24 @@ public class Matrix {
     }
     //O(n^2)
 
+    //swap two rows of this matrix 
+    //(1,1) is top left corner of matrix
+    //row values increase going down
+    //column value increase L-to-R
+    public void swapRows( int r1, int r2  ) {
+	Object[] temp = new Object[matrix.length];
+	for(int i = 0; i < matrix.length; i++){
+	    temp[i] = matrix[r1][i];
+	}
+	for(int x = 0; x < matrix.length; x++){
+	    matrix[r1][x] = matrix[r2][x];
+	}
+	for(int y = 0; y < matrix.length; y++){
+	    matrix[r2][y] = temp[y];
+	}
+    }
+    //O(n)
+    
     //swap two columns of this matrix 
     //(1,1) is top left corner of matrix
     //row values increase going down
@@ -163,24 +181,7 @@ public class Matrix {
 	System.out.println("Transpose!");
 	matrix = replacement;
     }
-
-    //swap two rows of this matrix 
-    //(1,1) is top left corner of matrix
-    //row values increase going down
-    //column value increase L-to-R
-    public void swapRows( int r1, int r2  ) {
-	Object[] temp = new Object[matrix.length];
-	for(int i = 0; i < matrix.length; i++){
-	    temp[i] = matrix[r1][i];
-	}
-	for(int x = 0; x < matrix.length; x++){
-	    matrix[r1][x] = matrix[r2][x];
-	}
-	for(int y = 0; y < matrix.length; y++){
-	    matrix[r2][y] = temp[y];
-	}
-    }
-    //O(n)
+    //O(n^2)
 
     //main method for testing
     public static void main( String[] args ) {
